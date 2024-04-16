@@ -1,0 +1,36 @@
+<ion-header [translucent]="true" class="center-header">
+  <div class="center-header__title">
+    <ion-icon name="arrow-back" class="center-header__title--icon" (click)="goBack()"></ion-icon>
+    <h1 class="center-header__title--text">Reservados</h1>
+    <div></div>
+  </div>
+
+  <div class="header-description">
+    <p class="header-description__text">
+      Lista de tickets reservados. Has clic en tu ticket para ver el codigo QR.
+    </p>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <main class="app-body">
+    <!-- BOXES DE LAS SOLICITUDES -->
+    <div class="request" *ngFor="let reserve of this.reserved">
+      <div class="request__text">
+        <p class="request__text--name">{{ reserve.name }} | {{ reserve.is_exit == 1 ? 'SALIDA' : 'ENTRADA' }}</p>
+        <p class="request__text--date">Para el {{ reserve.date }} {{ reserve.time }}</p>
+      </div>
+
+      <div class="request__amount">
+        <div>
+          <p class="request__amount--title">Precio</p>
+          <p class="request__amount--detail">$RD 25.00</p>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="no--elements" *ngIf="this.reserved.length === 0">No tienes tickets reservados</p>
+
+  </main>
+</ion-content>

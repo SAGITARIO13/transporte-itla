@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" class="center-header">
+  <div class="center-header__title">
+    <ion-icon name="arrow-back" class="center-header__title--icon" (click)="goBack()"></ion-icon>
+    <h1 class="center-header__title--text">Solicitar</h1>
+    <div></div>
+  </div>
+
+  <div class="header-description">
+    <p class="header-description__text">
+      Solicita un ticket para tu viaje. Nota: debes reservar el ticket 24 antes de la fecha
+    </p>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <main class="app-body">
+    <div class="form-group" id="open-modal">
+      <label for="" class="form-group__label">Selecciona la fecha</label>
+  
+      <div class="form-group__input">
+        <p class="form-group__input--placeholder">{{ this.date }}</p>
+      </div>
+    </div>
+    
+    <ion-modal trigger="open-modal" mode="md" [cssClass]="'center'">
+      <ng-template>
+        <ion-content>
+          <ion-datetime
+            #datetime
+            size="cover"
+            showDefaultButtons
+            presentation="date"
+            [(ngModel)]="selectedDate"
+            (ionChange)="SetDate()"
+          >
+
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <div class="form-group">
+      <label for="" class="form-group__label">Hora de llegada al ITLA</label>
+
+      <ion-select aria-label="Fruit" interface="action-sheet" placeholder="Selecciona la hora de llegada" [(ngModel)]="this.arrivalRouteSelected">
+        <ion-select-option *ngFor="let route of this.arrivalRoutes" value="{{ route.ID }}">{{ route.name }} {{ route.time }}</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="form-group">
+      <label for="" class="form-group__label">Hora de salida del ITLA</label>
+
+      <ion-select aria-label="Fruit" interface="action-sheet" placeholder="Selecciona la hora de salida" [(ngModel)]="this.exitRouteSelected">
+        <ion-select-option *ngFor="let route of this.exitRoutes" value="{{ route.ID }}">{{ route.name }}  {{ route.time }}</ion-select-option>
+      </ion-select>
+    </div>
+
+    <button class="save-button" (click)="SaveRequest()">RESERVAR TICKET</button>
+  </main>
+</ion-content>

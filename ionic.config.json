@@ -1,0 +1,7 @@
+{
+  "name": "transporte-itla",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

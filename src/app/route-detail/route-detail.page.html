@@ -1,0 +1,36 @@
+<ion-header [translucent]="true" class="center-header">
+  <div class="center-header__title">
+    <ion-icon name="arrow-back" class="center-header__title--icon" (click)="goBack()"></ion-icon>
+    <h1 class="center-header__title--text">Detalle de la ruta</h1>
+    <div></div>
+  </div>
+
+  <div class="header-description">
+    <p class="header-description__text">
+      Ve en tiempo real en el mapa donde se encuentra el bus en estos momentos.
+    </p>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <main class="body">
+    <capacitor-google-map #map></capacitor-google-map>
+    <div class="route">
+        <h4>Pintura (27 de febrero)</h4>
+        <div class="route__status">
+          <p>Estado</p>
+          <ion-label color="success">• En ruta</ion-label>
+        </div>
+    </div>
+    <div class="schedule">
+      <div class="schedule__details">
+        <h4>Horarios disponibles - entrada</h4>
+        <p>8:00AM • 10:00PM • 2:00PM • 6:00PM</p>
+      </div>
+      <div class="schedule__details">
+        <h4>Horarios disponibles - salida</h4>
+        <p>4:00PM • 6:00PM • 8:30PM • 10:00PM</p>
+      </div>
+    </div>
+  </main>
+</ion-content>

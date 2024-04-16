@@ -1,0 +1,14 @@
+<ion-content [fullscreen]="true" color="primary">
+  <div class="header">
+    <h3>
+      MUESTRA EL QR AL CHOFER!
+    </h3>
+    <P>Muestra el codigo QR al chofer para que este valide tu ticket y puedas ingresar al bus</P>
+  </div>
+
+  <div class="qr">
+    <qrcode [qrdata]="userId" [width]="310" [errorCorrectionLevel]="'M'"></qrcode>
+    <br>
+    <ion-button color="light" (click)="closeModal()">cancelar</ion-button>
+  </div>
+</ion-content>

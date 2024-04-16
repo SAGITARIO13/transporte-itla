@@ -1,0 +1,105 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+// IMPORTAR FUENTE
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Barlow', sans-serif;
+    // --ion-tab-bar-background-focused: white;
+}
+
+ion-content {
+    --ion-background-color: #F8F9FD;
+}
+
+.header-md::after {
+    background-image: none;
+}
+
+.header-background {
+    backdrop-filter: none;
+}
+
+.center-header {
+    background: #F8F9FD;
+    position: relative;
+    padding: 20px 25px;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--icon {
+            color: #1E1E1E;
+            cursor: pointer;
+            font-size: 25px;
+            position: absolute;
+            left: 25px;
+        }
+
+        &--text {
+            color: #1E1E1E;
+            font-weight: 800;
+            text-align: center;
+            margin: 0px;
+        }
+    }
+}
+
+.header-description {
+    text-align: center;
+    color: #3C3C3C;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.app-body {
+    padding: 30px 25px;
+}
+
+ion-modal {
+    &.center {
+        border-radius: 7px;
+        --width: calc(100% - 2em);
+        align-items: center;
+        --height: 396px;
+        .ion-page {
+        position: relative;
+        display: block;
+        contain: content;
+        }
+    }
+}
+
+.no--elements {
+    text-align: center;
+    margin-top: 20px;
+}

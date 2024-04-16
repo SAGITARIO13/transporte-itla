@@ -1,0 +1,54 @@
+<ion-header [translucent]="true" class="center-header">
+  <div class="center-header__title">
+    <ion-icon name="arrow-back" class="center-header__title--icon" (click)="goBack()"></ion-icon>
+    <h1 class="center-header__title--text">Solicitudes</h1>
+    <div></div>
+  </div>
+
+  <div class="header-description">
+    <p class="header-description__text">
+      Lista de tickets solicitados. Selecciona tus tickets, paga y utiliza un QR para abordar al bus.
+    </p>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <main class="app-body">
+    <!-- MONTO A PAGAR + BOTON PARA REALIZAR EL PAGO -->
+    <div class="pay-content">
+      <div class="pay-content__amount">
+        <p class="pay-content__amount--title">Total a pagar</p>
+        <p class="pay-content__amount--detail">$RD {{ this.totalToPay }}</p>
+      </div>
+
+      <button class="pay-content__button" (click)="PayTickets()">PAGAR</button>
+    </div>
+
+    <!-- BOXES DE LAS SOLICITUDES -->
+    <div class="request" *ngFor="let request of this.requests">
+      <div class="request__text">
+        <p class="request__text--name">{{ request.name }} <span class="rayita">|</span> {{ request.is_exit == 1 ? 'SALIDA' : 'ENTRADA' }}</p>
+        <p class="request__text--date">Para el {{ request.date }} {{ request.time }}</p>
+      </div>
+
+      <div class="request__amount">
+        <div>
+          <p class="request__amount--title">Precio</p>
+          <p class="request__amount--detail">$RD 25.00</p>
+        </div>
+
+        <ion-checkbox (ionChange)="SetTicketToPay(request.ID, $event)"></ion-checkbox>
+      </div>
+
+      <div class="request__pay-date">
+        <p class="request__pay-date--title">Pagar antes del</p>
+        <p class="request__pay-date--date">{{ request.pay_before }} <br> 4:00 PM</p>
+      </div>
+
+      <button class="request__delete--button" (click)="DeleteTicket(request.ID)"><ion-icon name="trash"></ion-icon></button>
+    </div>
+
+    <p class="no--elements" *ngIf="this.requests.length === 0">No tienes tickets solicitados</p>
+
+  </main>
+</ion-content>

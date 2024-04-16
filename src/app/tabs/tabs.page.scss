@@ -1,0 +1,23 @@
+ion-tab-bar {
+    background: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 0px;
+    width: calc(100% - 20px);
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+    ion-icon {
+        font-size: 25px;
+    }
+
+    ion-label {
+        font-weight: bold;
+        margin-top: 7px;
+        font-size: 13px;
+    }
+}

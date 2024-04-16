@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true">
+  <div class="header"> 
+  <img src="assets\Grouplogo-itla.svg">
+  <h3>Registro de usuario</h3>
+  <p></p>
+  </div>
+
+  <ion-list>
+    <div class="form-group">
+      <label for="" class="form-group__label">Matricula</label>
+      <ion-input placeholder="Ingrese su matricula" [(ngModel)]="this.enrollment" type="number"></ion-input>
+    </div>
+
+    <div class="form-group">
+      <label for="" class="form-group__label">Nombres</label>
+      <ion-input placeholder="Ingrese sus nombres" [(ngModel)]="this.firstName"></ion-input>
+    </div>
+
+    <div class="form-group">
+      <label for="" class="form-group__label">Apellidos</label>
+      <ion-input   placeholder="Ingrese sus apellidos" [(ngModel)]="this.lastName"></ion-input>
+    </div>
+
+    <div class="form-group">
+      <label for="" class="form-group__label">Correo Institucional</label>
+      <ion-input placeholder="Ingresa tu correo electronico" [(ngModel)]="this.email"></ion-input>
+    </div>
+
+    <div class="form-group">
+      <label for="" class="form-group__label">Carrera</label>
+      <ion-select aria-label="fruit" placeholder="Seleccione su carrera" [(ngModel)]="this.career">
+        <ion-select-option *ngFor="let career of this.careers" value="{{ career.ID }}">{{ career.name }}</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="form-group">
+      <label for="" class="form-group__label">Contrasena</label>
+      <ion-input type="password"  placeholder="Ingresa tu contrasena" [(ngModel)]="this.password"></ion-input>
+    </div>
+ 
+    <div class="form-group">
+      <label for="" class="form-group__label">Confirmar contrasena</label>
+      <ion-input type="password"  placeholder="confirma tu contrasena" [(ngModel)]="this.confirmPassword"></ion-input>
+    </div>
+
+
+    <ion-button color="primary" (click)="SignUp()">Registrarse</ion-button> <br>
+    <ion-button color="primary" (click)="back()">INICIAR SESSION</ion-button>
+
+  </ion-list>
+
+</ion-content>

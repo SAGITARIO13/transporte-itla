@@ -1,0 +1,55 @@
+ion_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    margin: 30% 30px 35px;
+    text-align: center;
+
+    h3 {
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    p {
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        text-align: center;
+    }
+}
+
+.qr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 350px;
+        height: 350px;
+        padding-bottom: 30px;
+    }
+
+    ion-button {
+        width: 230px;
+
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+
+    }
+}
+
+@media screen and (max-width:385px) {
+    .qr img {
+        width: 90%;
+        height: auto;
+    }
+}

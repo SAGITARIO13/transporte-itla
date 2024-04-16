@@ -1,0 +1,74 @@
+<ion-content [fullscreen]="true">
+
+  <header>
+
+    <div class="toolbar">
+      <h3>Inicio</h3>
+      <div class="toolbar__user">
+        <div class="toolbar__user__info">
+          <p>{{ this.firstName }} {{ this.lastName }}.</p>
+          <p class="money">RD$ {{ this.balance }}</p>
+        </div>
+        <ion-avatar (click)="openQR()"><img
+            src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"></ion-avatar>
+      </div>
+    </div>
+
+    <div class="dashboard">
+      <div class="dashboard_data">
+
+        <div class="dashboard_data_trip">
+          <p class="data">{{ this.requests }}</p>
+          <label for="dashboard_data_trip">Solicitados</label>
+        </div>
+
+        <div class="dashboard_data_cost">
+          <p class="data">${{ this.bills  }}</p>
+          <label for="dashboard_data_cost">Gastos</label>
+        </div>
+
+        <div class="dashboard_data_tickets">
+          <p class="data">{{ this.reserved }}</p>
+          <label for="dashboard_data_tickets">Tickets</label>
+        </div>
+
+      </div>
+
+      <ion-tab-bar class="dashboard__tabs">
+        <ion-tab-button id="day" (click)="setReportInterval('day')" class="{{ this.reportInterval === 'day' ? 'active--tab' : '' }}"> Hoy </ion-tab-button>
+        <ion-tab-button id="week" (click)="setReportInterval('week')" class="{{ this.reportInterval === 'week' ? 'active--tab' : '' }}"> Semana </ion-tab-button>
+        <ion-tab-button id="month" (click)="setReportInterval('month')" class="{{ this.reportInterval === 'month' ? 'active--tab' : '' }}"> Mes </ion-tab-button>
+      </ion-tab-bar>
+
+    </div>
+
+    <button class="scan--ticket" *ngIf="this.rol_id == '1'" (click)="scanTicket()">SCANNEAR TICKET</button>
+    <button class="logout--button" (click)="logout()">CERRAR SESSION</button>
+    <div class="content">
+
+      <div class="content__header">
+        <h3>Rutas</h3>
+        <ion-button color="primary">Solicitar</ion-button>
+      </div>
+
+
+      <div class="routes">
+
+        <div id="Pintura" class="route" *ngFor="let route of this.routes" (click)="seeRouteDetails()">
+          <h4>{{ route.name }}</h4>
+          <p>{{ route.schedule.join(' - ') }}</p>
+          <div class="routes__status">
+            <p>Estado</p>
+            <ion-label color="success">• En ruta</ion-label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+
+</ion-content>

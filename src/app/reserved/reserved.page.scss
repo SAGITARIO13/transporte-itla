@@ -1,0 +1,46 @@
+.request {
+    position: relative;
+    background: white;
+    border: 1px solid #F4F4F4;
+    border-radius: 7px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+
+    &__text {
+        &--name {
+            font-weight: bold;
+            color: #023877;
+            font-size: 18px;
+        }
+
+        &--date {
+            color: #6C6C6C;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+    }
+
+    &__amount {
+        display: flex;
+        align-items: flex-end;
+        margin-top: 10px;
+        font-weight: bold;
+        gap: 10px;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+
+        
+        &--title {
+            text-align: right;
+            color: #1E1E1E;
+            font-size: 13px;
+        }
+
+        &--detail {
+            color: #023877;
+            font-size: 18px;
+            margin-top: 3px;
+        }
+    }
+}
